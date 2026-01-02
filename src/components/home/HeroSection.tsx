@@ -57,7 +57,7 @@ const HeroSection = () => {
             transition={{ delay: 0.9, duration: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link to="/contact" className="btn-luxury">
+            <Link to="/booking" className="btn-luxury">
               <span>Book Your Experience</span>
             </Link>
             <Link to="/services" className="btn-outline-luxury border-cream text-cream hover:bg-cream hover:text-secondary">
