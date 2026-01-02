@@ -10,7 +10,7 @@ const navLinks = [
   { href: '/team', label: 'Master Stylists' },
   { href: '/gallery', label: 'Lookbook' },
   { href: '/vip', label: 'Private Suite' },
-  { href: '/contact', label: 'Concierge' },
+  { href: '/booking', label: 'Book Now' },
 ];
 
 const Header = () => {
