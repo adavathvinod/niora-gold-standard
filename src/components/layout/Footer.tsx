@@ -45,11 +45,11 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-xl mb-6 text-primary">Navigate</h4>
             <ul className="space-y-3">
-              {[
+            {[
                 { href: '/services', label: 'The Atelier' },
-                { href: '/team', label: 'Master Stylists' },
                 { href: '/gallery', label: 'Lookbook' },
                 { href: '/vip', label: 'Private Suite' },
+                { href: '/booking', label: 'Book Now' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
