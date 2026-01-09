@@ -33,7 +33,7 @@ const Footer = () => {
               <img src={nioraLogo} alt="Niora" className="h-16 w-auto" />
             </Link>
             <p className="font-display text-2xl italic text-champagne mb-4">
-              "Where Beauty Meets Royalty"
+              "The Signature of Bold Perfection"
             </p>
             <p className="font-sans text-sm text-cream/70 leading-relaxed">
               The Gold Standard of Beauty. Experience luxury hair and beauty
@@ -103,10 +103,10 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2 mb-6">
               <li className="font-sans text-sm text-cream/70">
-                Mon - Sat: 10:00 AM - 8:00 PM
+                Mon - Fri: 8:00 AM - 10:00 PM
               </li>
               <li className="font-sans text-sm text-cream/70">
-                Sunday: 11:00 AM - 6:00 PM
+                Sat - Sun: 7:30 AM - 10:00 PM
               </li>
             </ul>
             <div className="flex items-center gap-4">
