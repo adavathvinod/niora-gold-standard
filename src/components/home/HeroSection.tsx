@@ -36,9 +36,9 @@ const HeroSection = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="font-display text-5xl md:text-7xl lg:text-8xl font-light text-cream mb-6 leading-tight"
           >
-            Where Beauty
+            The Signature of
             <br />
-            <span className="italic text-gold-gradient">Meets Royalty</span>
+            <span className="italic text-gold-gradient">Bold Perfection</span>
           </motion.h1>
 
           <motion.p
