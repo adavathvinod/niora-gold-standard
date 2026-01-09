@@ -4,29 +4,46 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SocialSidebar from '@/components/layout/SocialSidebar';
 import { Calendar } from '@/components/ui/calendar';
-import { format, addDays, isSameDay, isAfter, startOfToday } from 'date-fns';
-import { Check, ChevronRight, Clock, Scissors, User, CalendarDays } from 'lucide-react';
+import { format, addDays, isAfter, startOfToday } from 'date-fns';
+import { Check, ChevronRight, Clock, Scissors, CalendarDays } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import stylist1 from '@/assets/stylist-1.jpg';
-import stylist2 from '@/assets/stylist-2.jpg';
-import stylist3 from '@/assets/stylist-3.jpg';
 import { cn } from '@/lib/utils';
 
 const services = [
-  { id: 'haircut', name: 'Signature Haircut & Styling', category: 'Couture Hair', duration: '45 min', price: '₹1,999' },
-  { id: 'color', name: 'Global Hair Color', category: 'Couture Hair', duration: '120 min', price: '₹4,999' },
-  { id: 'balayage', name: 'Balayage & Highlights', category: 'Couture Hair', duration: '180 min', price: '₹6,999' },
-  { id: 'keratin', name: 'Keratin Treatment', category: 'Couture Hair', duration: '150 min', price: '₹8,999' },
-  { id: 'facial', name: 'Signature Facial', category: 'Skin Artistry', duration: '60 min', price: '₹2,499' },
-  { id: 'hydrafacial', name: 'HydraFacial Luxe', category: 'Skin Artistry', duration: '90 min', price: '₹5,999' },
-  { id: 'bridal-trial', name: 'Bridal Trial Session', category: 'Bridal Suite', duration: '120 min', price: '₹5,000' },
-  { id: 'bridal-full', name: 'Bridal Makeup & Hair', category: 'Bridal Suite', duration: '240 min', price: '₹25,000' },
-];
-
-const stylists = [
-  { id: 'priya', name: 'Priya Sharma', title: 'Creative Director', image: stylist1, specialties: ['Balayage', 'Bridal', 'Color'] },
-  { id: 'rahul', name: 'Rahul Kapoor', title: 'Senior Barber', image: stylist2, specialties: ['Men\'s Cuts', 'Beard', 'Grooming'] },
-  { id: 'anjali', name: 'Dr. Anjali Mehta', title: 'Skin Specialist', image: stylist3, specialties: ['Facials', 'Anti-Aging', 'HydraFacial'] },
+  // Hair Services
+  { id: 'shampoo-f', name: 'Shampoo & Conditioning (Female)', category: 'Hair Services', duration: '30 min', price: '₹349' },
+  { id: 'shampoo-m', name: 'Shampoo & Conditioning (Male)', category: 'Hair Services', duration: '20 min', price: '₹149' },
+  { id: 'classic-cut', name: 'Classic Cut (U/V/Straight)', category: 'Hair Services', duration: '45 min', price: '₹449' },
+  { id: 'advance-cut', name: 'Advance Hair Cut', category: 'Hair Services', duration: '60 min', price: '₹849' },
+  { id: 'creative-cut-men', name: 'Creative Cut (Men)', category: 'Hair Services', duration: '45 min', price: '₹349' },
+  { id: 'beard-styling', name: 'Beard Styling', category: 'Hair Services', duration: '20 min', price: '₹149' },
+  { id: 'blowdry', name: 'Blowdry Setting', category: 'Hair Services', duration: '30 min', price: '₹599' },
+  // Hair Treatments
+  { id: 'keratin', name: 'Hair Keratin / Cysteine (S)', category: 'Hair Treatments', duration: '180 min', price: '₹5,499' },
+  { id: 'smoothing', name: 'Permanent Smoothing (S)', category: 'Hair Treatments', duration: '180 min', price: '₹4,999' },
+  { id: 'botox', name: 'Brazilian Hair Botox (S)', category: 'Hair Treatments', duration: '180 min', price: '₹6,599' },
+  { id: 'classic-spa', name: 'Classic Hair Spa (S)', category: 'Hair Treatments', duration: '60 min', price: '₹999' },
+  // Hair Colour
+  { id: 'global-ammonia', name: 'Global Ammonia (S)', category: 'Hair Colour', duration: '120 min', price: '₹1,699' },
+  { id: 'balayage', name: 'Balayage Technique (S)', category: 'Hair Colour', duration: '150 min', price: '₹2,799' },
+  { id: 'highlights', name: 'Global Highlights Balayage (S)', category: 'Hair Colour', duration: '180 min', price: '₹3,499' },
+  // Skin & Facial
+  { id: 'classic-facial', name: 'Classic Facial', category: 'Skin Artistry', duration: '60 min', price: '₹999' },
+  { id: 'gold-facial', name: 'Pure Gold Facial', category: 'Skin Artistry', duration: '75 min', price: '₹1,299' },
+  { id: 'bridal-glow', name: 'Bridal Glow Facial', category: 'Skin Artistry', duration: '90 min', price: '₹5,499' },
+  { id: 'cleanup', name: 'Advance Clean Up', category: 'Skin Artistry', duration: '45 min', price: '₹1,199' },
+  { id: 'dtan', name: 'Classic D-Tan Face & Neck', category: 'Skin Artistry', duration: '30 min', price: '₹499' },
+  // Makeup & Bridal
+  { id: 'party-makeup', name: 'Party Makeup', category: 'Bridal Suite', duration: '90 min', price: '₹4,499' },
+  { id: 'bridal-look', name: 'Bridal Look', category: 'Bridal Suite', duration: '180 min', price: '₹7,999' },
+  { id: 'bridal-hd', name: 'Bridal HD Makeup', category: 'Bridal Suite', duration: '240 min', price: '₹9,999' },
+  { id: 'groom-makeup', name: 'Groom Makeup', category: 'Bridal Suite', duration: '90 min', price: '₹4,999' },
+  { id: 'mehandi-bridal', name: 'Bridal Mehandi (2 Hands)', category: 'Bridal Suite', duration: '120 min', price: '₹3,999' },
+  // Spa & Wellness
+  { id: 'body-massage', name: 'Full Body Massage', category: 'Spa & Wellness', duration: '60 min', price: '₹3,499' },
+  { id: 'pedi-spa', name: 'Pedicure SPA', category: 'Spa & Wellness', duration: '45 min', price: '₹1,199' },
+  { id: 'mani-spa', name: 'Manicure SPA', category: 'Spa & Wellness', duration: '45 min', price: '₹1,199' },
+  { id: 'waxing-full', name: 'Full Body Waxing', category: 'Spa & Wellness', duration: '90 min', price: '₹2,999' },
 ];
 
 const timeSlots = [
@@ -36,24 +53,21 @@ const timeSlots = [
   '05:00 PM', '05:30 PM', '06:00 PM', '06:30 PM',
 ];
 
-type BookingStep = 'service' | 'stylist' | 'datetime' | 'details' | 'confirmation';
+type BookingStep = 'service' | 'datetime' | 'details' | 'confirmation';
 
 const Booking = () => {
   const { toast } = useToast();
   const [currentStep, setCurrentStep] = useState<BookingStep>('service');
   const [selectedService, setSelectedService] = useState<string | null>(null);
-  const [selectedStylist, setSelectedStylist] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', notes: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const service = services.find(s => s.id === selectedService);
-  const stylist = stylists.find(s => s.id === selectedStylist);
 
   const steps: { id: BookingStep; label: string; icon: React.ElementType }[] = [
     { id: 'service', label: 'Service', icon: Scissors },
-    { id: 'stylist', label: 'Stylist', icon: User },
     { id: 'datetime', label: 'Date & Time', icon: CalendarDays },
     { id: 'details', label: 'Details', icon: Check },
   ];
@@ -74,7 +88,6 @@ const Booking = () => {
   const canProceed = () => {
     switch (currentStep) {
       case 'service': return !!selectedService;
-      case 'stylist': return !!selectedStylist;
       case 'datetime': return !!selectedDate && !!selectedTime;
       case 'details': return formData.name && formData.phone;
       default: return false;
@@ -82,7 +95,7 @@ const Booking = () => {
   };
 
   const goToNext = () => {
-    const stepOrder: BookingStep[] = ['service', 'stylist', 'datetime', 'details'];
+    const stepOrder: BookingStep[] = ['service', 'datetime', 'details'];
     const currentIndex = stepOrder.indexOf(currentStep);
     if (currentIndex < stepOrder.length - 1) {
       setCurrentStep(stepOrder[currentIndex + 1]);
@@ -90,7 +103,7 @@ const Booking = () => {
   };
 
   const goToPrevious = () => {
-    const stepOrder: BookingStep[] = ['service', 'stylist', 'datetime', 'details'];
+    const stepOrder: BookingStep[] = ['service', 'datetime', 'details'];
     const currentIndex = stepOrder.indexOf(currentStep);
     if (currentIndex > 0) {
       setCurrentStep(stepOrder[currentIndex - 1]);
@@ -106,6 +119,8 @@ const Booking = () => {
     if (dayOfWeek === 6) return timeSlots.filter((_, i) => i % 2 === 0); // Saturday alternating
     return timeSlots;
   };
+
+  const categories = [...new Set(services.map(s => s.category))];
 
   return (
     <div className="min-h-screen">
@@ -128,7 +143,7 @@ const Booking = () => {
                 Book Your <span className="italic text-primary">Experience</span>
               </h1>
               <p className="font-sans text-lg text-cream/70">
-                Select your service, choose your stylist, and find the perfect time.
+                Select your service, choose your time, and let us pamper you.
               </p>
             </motion.div>
           </div>
@@ -191,8 +206,8 @@ const Booking = () => {
                   <h2 className="font-display text-3xl mb-8 text-center">
                     Select Your <span className="italic">Service</span>
                   </h2>
-                  <div className="grid gap-4">
-                    {['Couture Hair', 'Skin Artistry', 'Bridal Suite'].map(category => (
+                  <div className="grid gap-6">
+                    {categories.map(category => (
                       <div key={category}>
                         <h3 className="font-sans text-sm tracking-widest uppercase text-muted-foreground mb-3">
                           {category}
@@ -210,7 +225,7 @@ const Booking = () => {
                               )}
                             >
                               <div>
-                                <p className="font-display text-xl">{svc.name}</p>
+                                <p className="font-display text-lg">{svc.name}</p>
                                 <p className="font-sans text-sm text-muted-foreground flex items-center gap-2 mt-1">
                                   <Clock className="w-4 h-4" /> {svc.duration}
                                 </p>
@@ -230,54 +245,7 @@ const Booking = () => {
                 </motion.div>
               )}
 
-              {/* Step 2: Stylist Selection */}
-              {currentStep === 'stylist' && (
-                <motion.div
-                  key="stylist"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <h2 className="font-display text-3xl mb-8 text-center">
-                    Choose Your <span className="italic">Stylist</span>
-                  </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {stylists.map(st => (
-                      <button
-                        key={st.id}
-                        onClick={() => setSelectedStylist(st.id)}
-                        className={cn(
-                          "p-6 rounded-lg border-2 text-center transition-all duration-300",
-                          selectedStylist === st.id
-                            ? "border-primary bg-primary/5 shadow-gold"
-                            : "border-border bg-card hover:border-primary/50"
-                        )}
-                      >
-                        <div className="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-4 border-background shadow-lg">
-                          <img src={st.image} alt={st.name} className="w-full h-full object-cover" />
-                        </div>
-                        <p className="font-display text-xl">{st.name}</p>
-                        <p className="font-sans text-sm text-primary mb-3">{st.title}</p>
-                        <div className="flex flex-wrap justify-center gap-1">
-                          {st.specialties.map(spec => (
-                            <span key={spec} className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-full">
-                              {spec}
-                            </span>
-                          ))}
-                        </div>
-                        {selectedStylist === st.id && (
-                          <div className="mt-4 flex justify-center">
-                            <Check className="w-6 h-6 text-primary" />
-                          </div>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Step 3: Date & Time Selection */}
+              {/* Step 2: Date & Time Selection */}
               {currentStep === 'datetime' && (
                 <motion.div
                   key="datetime"
@@ -342,7 +310,7 @@ const Booking = () => {
                 </motion.div>
               )}
 
-              {/* Step 4: Contact Details */}
+              {/* Step 3: Contact Details */}
               {currentStep === 'details' && (
                 <motion.div
                   key="details"
@@ -366,8 +334,8 @@ const Booking = () => {
                           <span className="font-medium">{service?.name}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-cream/70">Stylist</span>
-                          <span className="font-medium">{stylist?.name}</span>
+                          <span className="text-cream/70">Duration</span>
+                          <span className="font-medium">{service?.duration}</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-cream/70">Date</span>
@@ -415,8 +383,8 @@ const Booking = () => {
                         placeholder="Special requests or notes..."
                         value={formData.notes}
                         onChange={(e) => setFormData(prev => ({ ...prev, notes: e.target.value }))}
-                        rows={3}
-                        className="input-luxury border-border resize-none"
+                        className="input-luxury border-border min-h-[100px] resize-none"
+                        rows={4}
                       />
                     </div>
                   </div>
@@ -432,8 +400,8 @@ const Booking = () => {
                   transition={{ duration: 0.5 }}
                   className="text-center py-12"
                 >
-                  <div className="w-24 h-24 mx-auto mb-8 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Check className="w-12 h-12 text-primary" />
+                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Check className="w-10 h-10 text-primary" />
                   </div>
                   <h2 className="font-display text-4xl md:text-5xl mb-4">
                     Booking <span className="italic text-primary">Confirmed!</span>
@@ -449,14 +417,14 @@ const Booking = () => {
                         <span className="font-medium">{service?.name}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Stylist</span>
-                        <span className="font-medium">{stylist?.name}</span>
-                      </div>
-                      <div className="flex justify-between">
                         <span className="text-muted-foreground">Date & Time</span>
                         <span className="font-medium">
                           {selectedDate && format(selectedDate, 'MMM d')} at {selectedTime}
                         </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Price</span>
+                        <span className="font-medium text-primary">{service?.price}</span>
                       </div>
                     </div>
                   </div>
