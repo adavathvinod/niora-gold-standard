@@ -87,10 +87,10 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
-                  href="mailto:hello@niora.salon"
+                  href="mailto:niorahairandbeautysalon@gmail.com"
                   className="font-sans text-sm text-cream/70 hover:text-primary transition-colors"
                 >
-                  hello@niora.salon
+                  niorahairandbeautysalon@gmail.com
                 </a>
               </li>
             </ul>
@@ -150,7 +150,7 @@ const Footer = () => {
             <span className="flex items-center gap-2 text-primary">
               <span className="text-lg">★★★★★</span>
               <span className="font-sans text-xs text-cream/70">
-                800+ Five Star Reviews
+                150+ Five Star Reviews
               </span>
             </span>
           </div>

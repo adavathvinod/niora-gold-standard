@@ -115,11 +115,11 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-display text-xl mb-1">Email</h3>
-                      <a 
-                        href="mailto:hello@niora.salon" 
+                    <a 
+                        href="mailto:niorahairandbeautysalon@gmail.com" 
                         className="font-sans text-muted-foreground hover:text-primary transition-colors"
                       >
-                        hello@niora.salon
+                        niorahairandbeautysalon@gmail.com
                       </a>
                     </div>
                   </div>

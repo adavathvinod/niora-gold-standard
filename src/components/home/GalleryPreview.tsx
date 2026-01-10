@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import gallery1 from '@/assets/gallery-1.jpg';
-import gallery2 from '@/assets/gallery-2.jpg';
-import gallery3 from '@/assets/gallery-3.jpg';
-import gallery4 from '@/assets/gallery-4.jpg';
+import gallery7 from '@/assets/gallery-7.jpg';
+import gallery8 from '@/assets/gallery-8.jpg';
+import gallery11 from '@/assets/gallery-11.jpg';
+import gallery12 from '@/assets/gallery-12.jpg';
 
 const images = [
-  { src: gallery1, alt: 'Hair transformation' },
-  { src: gallery2, alt: 'Men\'s styling' },
-  { src: gallery3, alt: 'Facial treatment' },
-  { src: gallery4, alt: 'Nail art' },
+  { src: gallery7, alt: 'Men\'s textured fade' },
+  { src: gallery8, alt: 'Classic crop styling' },
+  { src: gallery11, alt: 'Soft layers' },
+  { src: gallery12, alt: 'Bridal curls' },
 ];
 
 const GalleryPreview = () => {
