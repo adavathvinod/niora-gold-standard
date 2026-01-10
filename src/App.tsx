@@ -12,6 +12,7 @@ import Gallery from "./pages/Gallery";
 import VIP from "./pages/VIP";
 import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
+import PhotographyBooking from "./pages/PhotographyBooking";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/vip" element={<VIP />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/booking" element={<Booking />} />
+          <Route path="/photography-booking" element={<PhotographyBooking />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

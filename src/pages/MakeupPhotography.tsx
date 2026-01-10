@@ -238,7 +238,7 @@ const MakeupPhotography = () => {
                   </ul>
                   
                   <Link
-                    to="/booking"
+                    to="/photography-booking"
                     className={`block text-center py-3 rounded font-sans text-sm font-medium tracking-wide transition-all duration-300 ${
                       pkg.popular
                         ? 'bg-primary text-secondary hover:bg-primary/90'
