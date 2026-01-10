@@ -10,6 +10,12 @@ import gallery3 from '@/assets/gallery-3.jpg';
 import gallery4 from '@/assets/gallery-4.jpg';
 import gallery5 from '@/assets/gallery-5.jpg';
 import gallery6 from '@/assets/gallery-6.jpg';
+import gallery7 from '@/assets/gallery-7.jpg';
+import gallery8 from '@/assets/gallery-8.jpg';
+import gallery9 from '@/assets/gallery-9.jpg';
+import gallery10 from '@/assets/gallery-10.jpg';
+import gallery11 from '@/assets/gallery-11.jpg';
+import gallery12 from '@/assets/gallery-12.jpg';
 import bridalImage from '@/assets/bridal-hero.jpg';
 import salonInterior from '@/assets/salon-interior-1.png';
 import salonSkincare from '@/assets/salon-skincare.png';
@@ -17,6 +23,12 @@ import salonSpa from '@/assets/salon-spa.png';
 
 const galleryImages = [
   { src: gallery1, category: 'Hair Color', title: 'Balayage Transformation' },
+  { src: gallery7, category: 'Men\'s Styling', title: 'Textured Fade' },
+  { src: gallery8, category: 'Men\'s Styling', title: 'Classic Crop' },
+  { src: gallery9, category: 'Hair Color', title: 'Platinum Ombre' },
+  { src: gallery10, category: 'Hair Color', title: 'Natural Waves' },
+  { src: gallery11, category: 'Hair Color', title: 'Soft Layers' },
+  { src: gallery12, category: 'Bridal', title: 'Bridal Curls' },
   { src: gallery2, category: 'Men\'s Styling', title: 'Modern Fade' },
   { src: gallery3, category: 'Skin', title: 'Luxury Facial' },
   { src: gallery4, category: 'Nails', title: 'Champagne Elegance' },
@@ -144,7 +156,7 @@ const Gallery = () => {
               4.8 out of 5 Stars
             </p>
             <p className="font-sans text-cream/60">
-              Based on 800+ reviews from our valued clients
+              Based on 150+ reviews from our valued clients
             </p>
           </div>
         </section>
