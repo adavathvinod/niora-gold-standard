@@ -158,14 +158,14 @@ const Contact = () => {
                 {/* Map */}
                 <div className="aspect-video rounded-lg overflow-hidden shadow-luxury">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2!2d78.4!3d17.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI0JzAwLjAiTiA3OMKwMjQnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3808.6626039650005!2d78.58620347438713!3d17.331820704405015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba1001bc5d7d5%3A0x4c445b9eb09bae01!2sNiora%20Hair%20and%20Beauty%20Unisex%20salon!5e0!3m2!1sen!2sin!4v1768113036441!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Niora Salon Location"
+                    title="Niora Hair and Beauty Unisex Salon"
                   />
                 </div>
               </motion.div>
