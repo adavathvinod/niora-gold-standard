@@ -16,6 +16,11 @@ import gallery9 from '@/assets/gallery-9.jpg';
 import gallery10 from '@/assets/gallery-10.jpg';
 import gallery11 from '@/assets/gallery-11.jpg';
 import gallery12 from '@/assets/gallery-12.jpg';
+import gallery13 from '@/assets/gallery-13.jpg';
+import gallery14 from '@/assets/gallery-14.jpg';
+import gallery15 from '@/assets/gallery-15.jpg';
+import gallery16 from '@/assets/gallery-16.jpg';
+import gallery17 from '@/assets/gallery-17.jpg';
 import bridalImage from '@/assets/bridal-hero.jpg';
 import salonInterior from '@/assets/salon-interior-1.png';
 import salonSkincare from '@/assets/salon-skincare.png';
@@ -29,6 +34,11 @@ const galleryImages = [
   { src: gallery10, category: 'Hair Color', title: 'Natural Waves' },
   { src: gallery11, category: 'Hair Color', title: 'Soft Layers' },
   { src: gallery12, category: 'Bridal', title: 'Bridal Curls' },
+  { src: gallery13, category: 'Kids', title: 'Little Star' },
+  { src: gallery14, category: 'Kids', title: 'Pretty in Style' },
+  { src: gallery15, category: 'Hair Color', title: 'Copper Highlights' },
+  { src: gallery16, category: 'Hair Color', title: 'Salon Sisters' },
+  { src: gallery17, category: 'Hair Color', title: 'Bouncy Curls' },
   { src: gallery2, category: 'Men\'s Styling', title: 'Modern Fade' },
   { src: gallery3, category: 'Skin', title: 'Luxury Facial' },
   { src: gallery4, category: 'Nails', title: 'Champagne Elegance' },
@@ -40,7 +50,7 @@ const galleryImages = [
   { src: salonSpa, category: 'Salon', title: 'Spa Suite' },
 ];
 
-const categories = ['All', 'Hair Color', 'Men\'s Styling', 'Bridal', 'Skin', 'Nails', 'Salon'];
+const categories = ['All', 'Hair Color', 'Men\'s Styling', 'Bridal', 'Kids', 'Skin', 'Nails', 'Salon'];
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
