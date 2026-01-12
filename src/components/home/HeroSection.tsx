@@ -38,7 +38,7 @@ const HeroSection = () => {
           >
             The Signature of
             <br />
-            <span className="italic text-gold-gradient">Bold Perfection</span>
+            <span className="italic text-red-500">Bold Perfection</span>
           </motion.h1>
 
           <motion.p
