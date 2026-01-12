@@ -9,8 +9,8 @@ const membershipTiers = [
   {
     name: 'Gold',
     icon: Star,
-    price: '₹2,499',
-    period: 'per month',
+    price: '₹1,999',
+    period: 'per year',
     description: 'Perfect introduction to luxury',
     benefits: [
       '10% off all services',
@@ -24,15 +24,13 @@ const membershipTiers = [
   {
     name: 'Platinum',
     icon: Diamond,
-    price: '₹4,999',
-    period: 'per month',
+    price: '₹2,499',
+    period: 'per year',
     description: 'The ultimate luxury experience',
     benefits: [
       '20% off all services',
       'Same-day priority booking',
       'Private styling suite access',
-      'Complimentary hair spa monthly',
-      'Exclusive product samples',
       'Partner discounts (fashion & dining)',
       'Anniversary celebration service',
     ],
@@ -41,14 +39,13 @@ const membershipTiers = [
   {
     name: 'Royal',
     icon: Crown,
-    price: '₹9,999',
-    period: 'per month',
+    price: '₹3,999',
+    period: 'per year',
     description: 'Bespoke luxury without limits',
     benefits: [
       '30% off all services',
       'Anytime priority booking',
       'Dedicated personal stylist',
-      'Monthly home service included',
       'VIP event invitations',
       'Complimentary product kit quarterly',
       'Exclusive private suite',
