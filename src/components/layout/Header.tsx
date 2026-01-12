@@ -53,7 +53,7 @@ const Header = () => {
         <nav className="max-w-7xl mx-auto flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <img src={nioraLogo} alt="Niora" className="h-12 w-auto" />
-            <span className="font-display text-2xl font-medium tracking-wide text-gold-gradient">
+            <span className="font-display text-2xl font-bold tracking-wide text-white">
               NIORA
             </span>
           </Link>

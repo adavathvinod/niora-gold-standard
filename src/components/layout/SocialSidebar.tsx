@@ -7,7 +7,7 @@ const SocialSidebar = () => {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 1, duration: 0.5 }}
-      className="social-sticky hidden lg:flex"
+      className="social-sticky flex"
     >
       <a
         href="https://instagram.com/niora_unisex_salon"
