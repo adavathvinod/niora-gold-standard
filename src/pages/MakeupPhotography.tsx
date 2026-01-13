@@ -25,7 +25,7 @@ const makeupServices = [
     name: 'Party Makeup',
     description: 'Glamorous makeup for parties, receptions, and special occasions.',
     price: 'From ₹3,500',
-    features: ['Glamour Makeup', 'Hairstyling', 'Eye Lashes', 'Setting Spray'],
+    features: ['Glamour Makeup', 'Setting Spray'],
     icon: Sparkles,
   },
   {
