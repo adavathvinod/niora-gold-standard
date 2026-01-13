@@ -10,7 +10,7 @@ const membershipTiers = [
     name: 'Gold',
     icon: Star,
     price: '₹1,999',
-    period: '10 years',
+    period: 'up to 10 years',
     description: 'Perfect introduction to luxury',
     benefits: [
       '10% off all services',
@@ -25,7 +25,7 @@ const membershipTiers = [
     name: 'Platinum',
     icon: Diamond,
     price: '₹2,499',
-    period: '10 years',
+    period: 'up to 10 years',
     description: 'The ultimate luxury experience',
     benefits: [
       '20% off all services',
@@ -39,7 +39,7 @@ const membershipTiers = [
     name: 'Royal',
     icon: Crown,
     price: '₹3,999',
-    period: '10 years',
+    period: 'up to 10 years',
     description: 'Bespoke luxury without limits',
     benefits: [
       '30% off all services',
