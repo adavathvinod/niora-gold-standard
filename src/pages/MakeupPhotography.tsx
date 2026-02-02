@@ -39,31 +39,31 @@ const makeupServices = [
 
 const photographyPackages = [
   {
-    name: 'Bridal Portfolio',
-    description: 'Complete bridal photography package capturing every moment of your special day.',
-    price: 'From ₹35,000',
-    features: ['8+ Hours Coverage', '500+ Edited Photos', 'Cinematic Video', 'Photo Album'],
+    name: 'Wedding Package',
+    description: 'Complete wedding photography & videography capturing every precious moment of your special day.',
+    price: 'From ₹80,000',
+    features: ['Bride & Groom Packages', 'Traditional Photos', 'Traditional Videos', 'Cinematic Teaser', 'Candid Photos', 'Drone Video'],
     popular: true,
   },
   {
     name: 'Pre-Wedding Shoot',
-    description: 'Romantic pre-wedding photoshoot at your choice of location.',
+    description: 'Romantic pre-wedding photoshoot at your choice of location with cinematic quality.',
+    price: 'From ₹35,000',
+    features: ['Cinematic Teaser', 'Candid Photos', 'Drone Videos'],
+    popular: false,
+  },
+  {
+    name: 'Birthday Shoots',
+    description: 'Capture the joy and celebration of your special birthday moments.',
     price: 'From ₹25,000',
-    features: ['4-6 Hours', 'Multiple Locations', '200+ Edited Photos', 'Highlight Video'],
+    features: ['Cinematic Teaser', 'Candid Photos'],
     popular: false,
   },
   {
-    name: 'Engagement Ceremony',
-    description: 'Capture the joy of your engagement with professional photography.',
-    price: 'From ₹15,000',
-    features: ['4 Hours Coverage', '300+ Edited Photos', 'Same-Day Preview', 'Digital Delivery'],
-    popular: false,
-  },
-  {
-    name: 'Fashion & Portfolio',
-    description: 'Professional portfolio shoot for models, actors, and influencers.',
-    price: 'From ₹10,000',
-    features: ['3 Hours Studio', '50+ Edited Photos', 'Multiple Looks', 'Retouching Included'],
+    name: 'Saree & Dhoti Ceremonies',
+    description: 'Traditional ceremony photography capturing cultural moments beautifully.',
+    price: 'From ₹45,000',
+    features: ['Traditional Photos', 'Traditional Videos', 'Cinematic Teaser', 'Candid Photos', 'Drone Video'],
     popular: false,
   },
 ];
@@ -102,7 +102,7 @@ const MakeupPhotography = () => {
                 transition={{ delay: 0.5, duration: 0.8 }}
                 className="font-display text-5xl md:text-6xl lg:text-7xl font-light text-cream mb-6"
               >
-                Makeup & <span className="italic text-primary">Photography</span>
+                Photography & <span className="italic text-primary">Makeup</span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}

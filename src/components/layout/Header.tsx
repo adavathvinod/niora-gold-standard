@@ -7,7 +7,7 @@ import nioraLogo from '@/assets/niora-logo.png';
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'The Atelier' },
-  { href: '/makeup-photography', label: 'Makeup & Photography' },
+  { href: '/makeup-photography', label: 'Photography & Makeup' },
   { href: '/gallery', label: 'Lookbook' },
   { href: '/vip', label: 'Private Suite' },
   { href: '/booking', label: 'Book Now' },
