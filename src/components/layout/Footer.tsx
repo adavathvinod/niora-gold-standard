@@ -32,7 +32,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-3 mb-6">
               <img src={nioraLogo} alt="Niora" className="h-16 w-auto" />
             </Link>
-            <p className="font-display text-2xl italic text-red-500 mb-4">
+            <p className="font-display text-2xl italic text-primary mb-4">
               "The Signature of Bold Perfection"
             </p>
             <p className="font-sans text-sm text-cream/70 leading-relaxed">
@@ -77,12 +77,20 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a
-                  href="tel:+917416683838"
-                  className="font-sans text-sm text-cream/70 hover:text-primary transition-colors"
-                >
-                  +91 74166 83838
-                </a>
+                <div className="flex flex-col gap-1">
+                  <a
+                    href="tel:+917416683838"
+                    className="font-sans text-sm text-cream/70 hover:text-primary transition-colors"
+                  >
+                    +91 74166 83838
+                  </a>
+                  <a
+                    href="tel:+916303891181"
+                    className="font-sans text-sm text-cream/70 hover:text-primary transition-colors"
+                  >
+                    +91 63038 91181
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
