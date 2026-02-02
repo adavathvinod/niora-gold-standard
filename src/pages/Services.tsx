@@ -4,6 +4,12 @@ import Footer from '@/components/layout/Footer';
 import SocialSidebar from '@/components/layout/SocialSidebar';
 import { Scissors, Sparkles, Heart, Crown, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 import bridalImage from '@/assets/bridal-hero.jpg';
 import gallery3 from '@/assets/gallery-3.jpg';
 import gallery1 from '@/assets/gallery-1.jpg';
@@ -376,7 +382,20 @@ const Services = () => {
         {/* Service Categories */}
         <section className="py-24 marble-texture">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="font-display text-3xl md:text-4xl font-light mb-4">
+                Our <span className="italic">Services</span>
+              </h2>
+              <div className="section-divider" />
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {serviceCategories.map((category, categoryIndex) => (
                 <motion.div
                   key={category.title}
@@ -384,86 +403,86 @@ const Services = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: categoryIndex * 0.05 }}
-                  className="bg-card rounded-lg border border-border shadow-soft overflow-hidden"
                 >
-                  {/* Category Header */}
-                  <div className="bg-secondary text-cream p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                        <category.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <h3 className="font-display text-xl">{category.title}</h3>
-                    </div>
-                  </div>
-
-                  {/* Services List */}
-                  <div className="p-6">
-                    {/* Size Labels for sized services */}
-                    {category.hasSizes && category.sizeLabels && (
-                      <div className="flex justify-end gap-4 mb-3 pr-2">
-                        {category.sizeLabels.map(label => (
-                          <span key={label} className="font-sans text-xs text-muted-foreground w-14 text-center">
-                            {label}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                    {/* Dual Labels for pedi/mani services */}
-                    {category.hasDual && category.dualLabels && (
-                      <div className="flex justify-end gap-2 mb-3 pr-2">
-                        {category.dualLabels.map(label => (
-                          <span key={label} className="font-sans text-xs text-muted-foreground w-16 text-center">
-                            {label}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                    
-                    <div className="space-y-3">
-                      {category.services.map((service, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center justify-between py-2 border-b border-border last:border-0"
-                        >
-                          <span className="font-sans text-sm flex-1 pr-2">{service.name}</span>
-                          
-                          {/* Simple price */}
-                          {'price' in service && (
-                            <span className="font-sans text-sm text-primary font-medium whitespace-nowrap">
-                              {service.price}
-                            </span>
-                          )}
-                          
-                          {/* Sized prices */}
-                          {category.hasSizes && 's' in service && (
-                            <div className="flex gap-4">
-                              <span className="font-sans text-xs text-primary w-14 text-center">
-                                {service.s || '-'}
-                              </span>
-                              <span className="font-sans text-xs text-primary w-14 text-center">
-                                {service.m || '-'}
-                              </span>
-                              <span className="font-sans text-xs text-primary w-14 text-center">
-                                {service.l || '-'}
-                              </span>
-                            </div>
-                          )}
-                          
-                          {/* Dual prices (pedi/mani) */}
-                          {category.hasDual && 'pedi' in service && (
-                            <div className="flex gap-2">
-                              <span className="font-sans text-xs text-primary w-16 text-center">
-                                {service.pedi || '-'}
-                              </span>
-                              <span className="font-sans text-xs text-primary w-16 text-center">
-                                {service.mani || '-'}
-                              </span>
-                            </div>
-                          )}
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value={category.title} className="border border-border rounded-lg overflow-hidden bg-card shadow-soft">
+                      <AccordionTrigger className="bg-secondary text-cream px-6 py-4 hover:no-underline">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                            <category.icon className="w-5 h-5 text-primary" />
+                          </div>
+                          <h3 className="font-display text-lg text-left">{category.title}</h3>
                         </div>
-                      ))}
-                    </div>
-                  </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="px-6 pt-4 pb-6">
+                        {/* Size Labels for sized services */}
+                        {category.hasSizes && category.sizeLabels && (
+                          <div className="flex justify-end gap-4 mb-3 pr-2">
+                            {category.sizeLabels.map(label => (
+                              <span key={label} className="font-sans text-xs text-muted-foreground w-14 text-center">
+                                {label}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        {/* Dual Labels for pedi/mani services */}
+                        {category.hasDual && category.dualLabels && (
+                          <div className="flex justify-end gap-2 mb-3 pr-2">
+                            {category.dualLabels.map(label => (
+                              <span key={label} className="font-sans text-xs text-muted-foreground w-16 text-center">
+                                {label}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        
+                        <div className="space-y-3">
+                          {category.services.map((service, idx) => (
+                            <div
+                              key={idx}
+                              className="flex items-center justify-between py-2 border-b border-border last:border-0"
+                            >
+                              <span className="font-sans text-sm flex-1 pr-2">{service.name}</span>
+                              
+                              {/* Simple price */}
+                              {'price' in service && (
+                                <span className="font-sans text-sm text-primary font-medium whitespace-nowrap">
+                                  {service.price}
+                                </span>
+                              )}
+                              
+                              {/* Sized prices */}
+                              {category.hasSizes && 's' in service && (
+                                <div className="flex gap-4">
+                                  <span className="font-sans text-xs text-primary w-14 text-center">
+                                    {service.s || '-'}
+                                  </span>
+                                  <span className="font-sans text-xs text-primary w-14 text-center">
+                                    {service.m || '-'}
+                                  </span>
+                                  <span className="font-sans text-xs text-primary w-14 text-center">
+                                    {service.l || '-'}
+                                  </span>
+                                </div>
+                              )}
+                              
+                              {/* Dual prices (pedi/mani) */}
+                              {category.hasDual && 'pedi' in service && (
+                                <div className="flex gap-2">
+                                  <span className="font-sans text-xs text-primary w-16 text-center">
+                                    {service.pedi || '-'}
+                                  </span>
+                                  <span className="font-sans text-xs text-primary w-16 text-center">
+                                    {service.mani || '-'}
+                                  </span>
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </motion.div>
               ))}
             </div>
