@@ -117,64 +117,6 @@ const MakeupPhotography = () => {
           </div>
         </section>
 
-        {/* Makeup Services Section */}
-        <section className="py-24 marble-texture">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <p className="font-sans text-sm tracking-[0.3em] uppercase text-primary mb-4">
-                Professional Artistry
-              </p>
-              <h2 className="font-display text-4xl md:text-5xl font-light mb-4">
-                Makeup <span className="italic">Services</span>
-              </h2>
-              <p className="font-sans text-muted-foreground max-w-2xl mx-auto">
-                Our expert makeup artists use premium international brands to 
-                create stunning looks tailored to your style and occasion.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {makeupServices.map((service, index) => (
-                <motion.div
-                  key={service.name}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.8 }}
-                  className="group bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-500 hover:shadow-luxury"
-                >
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <service.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="font-display text-2xl">{service.name}</h3>
-                        <span className="font-sans text-primary font-medium">{service.price}</span>
-                      </div>
-                      <p className="font-sans text-muted-foreground mb-4">{service.description}</p>
-                      <ul className="grid grid-cols-2 gap-2">
-                        {service.features.map((feature) => (
-                          <li key={feature} className="font-sans text-sm text-muted-foreground flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Photography Packages Section */}
         <section className="py-24 bg-secondary text-cream">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -247,6 +189,64 @@ const MakeupPhotography = () => {
                   >
                     Book Now
                   </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Makeup Services Section */}
+        <section className="py-24 marble-texture">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <p className="font-sans text-sm tracking-[0.3em] uppercase text-primary mb-4">
+                Professional Artistry
+              </p>
+              <h2 className="font-display text-4xl md:text-5xl font-light mb-4">
+                Makeup <span className="italic">Services</span>
+              </h2>
+              <p className="font-sans text-muted-foreground max-w-2xl mx-auto">
+                Our expert makeup artists use premium international brands to 
+                create stunning looks tailored to your style and occasion.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {makeupServices.map((service, index) => (
+                <motion.div
+                  key={service.name}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.8 }}
+                  className="group bg-card border border-border rounded-lg p-8 hover:border-primary/50 transition-all duration-500 hover:shadow-luxury"
+                >
+                  <div className="flex items-start gap-6">
+                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                      <service.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between mb-3">
+                        <h3 className="font-display text-2xl">{service.name}</h3>
+                        <span className="font-sans text-primary font-medium">{service.price}</span>
+                      </div>
+                      <p className="font-sans text-muted-foreground mb-4">{service.description}</p>
+                      <ul className="grid grid-cols-2 gap-2">
+                        {service.features.map((feature) => (
+                          <li key={feature} className="font-sans text-sm text-muted-foreground flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
