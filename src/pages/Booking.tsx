@@ -8,6 +8,12 @@ import { format, addDays, isAfter, startOfToday } from 'date-fns';
 import { Check, ChevronRight, Clock, Scissors, CalendarDays } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 const services = [
   // Hair Wash / Hair Cut
@@ -383,42 +389,49 @@ const Booking = () => {
                   <h2 className="font-display text-3xl mb-8 text-center">
                     Select Your <span className="italic">Service</span>
                   </h2>
-                  <div className="grid gap-6">
+                  <Accordion type="single" collapsible className="w-full space-y-4">
                     {categories.map(category => (
-                      <div key={category}>
-                        <h3 className="font-sans text-sm tracking-widest uppercase text-muted-foreground mb-3">
-                          {category}
-                        </h3>
-                        <div className="grid gap-3">
-                          {services.filter(s => s.category === category).map(svc => (
-                            <button
-                              key={svc.id}
-                              onClick={() => setSelectedService(svc.id)}
-                              className={cn(
-                                "w-full p-5 rounded-lg border-2 text-left transition-all duration-300 flex items-center justify-between",
-                                selectedService === svc.id
-                                  ? "border-primary bg-primary/5"
-                                  : "border-border bg-card hover:border-primary/50"
-                              )}
-                            >
-                              <div>
-                                <p className="font-display text-lg">{svc.name}</p>
-                                <p className="font-sans text-sm text-muted-foreground flex items-center gap-2 mt-1">
-                                  <Clock className="w-4 h-4" /> {svc.duration}
-                                </p>
-                              </div>
-                              <div className="text-right">
-                                <p className="font-sans text-lg text-primary font-medium">{svc.price}</p>
-                                {selectedService === svc.id && (
-                                  <Check className="w-5 h-5 text-primary ml-auto mt-1" />
+                      <AccordionItem key={category} value={category} className="border border-border rounded-lg overflow-hidden bg-card">
+                        <AccordionTrigger className="bg-secondary text-cream px-6 py-4 hover:no-underline">
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                              <Scissors className="w-4 h-4 text-primary" />
+                            </div>
+                            <h3 className="font-display text-base text-left">{category}</h3>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="p-4">
+                          <div className="grid gap-3">
+                            {services.filter(s => s.category === category).map(svc => (
+                              <button
+                                key={svc.id}
+                                onClick={() => setSelectedService(svc.id)}
+                                className={cn(
+                                  "w-full p-4 rounded-lg border-2 text-left transition-all duration-300 flex items-center justify-between",
+                                  selectedService === svc.id
+                                    ? "border-primary bg-primary/5"
+                                    : "border-border bg-background hover:border-primary/50"
                                 )}
-                              </div>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
+                              >
+                                <div>
+                                  <p className="font-sans text-sm font-medium">{svc.name}</p>
+                                  <p className="font-sans text-xs text-muted-foreground flex items-center gap-1 mt-1">
+                                    <Clock className="w-3 h-3" /> {svc.duration}
+                                  </p>
+                                </div>
+                                <div className="text-right flex items-center gap-2">
+                                  <p className="font-sans text-sm text-primary font-medium">{svc.price}</p>
+                                  {selectedService === svc.id && (
+                                    <Check className="w-4 h-4 text-primary" />
+                                  )}
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
                     ))}
-                  </div>
+                  </Accordion>
                 </motion.div>
               )}
 
