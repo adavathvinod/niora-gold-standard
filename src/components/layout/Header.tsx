@@ -141,7 +141,7 @@ const Header = () => {
 
               <div className="absolute bottom-12 left-8 right-8">
                 <Link
-                  to="/contact"
+                  to="/booking"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="btn-luxury w-full text-center block"
                 >
