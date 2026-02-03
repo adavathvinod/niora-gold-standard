@@ -1,10 +1,11 @@
+import { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Phone, MapPin, Mail } from 'lucide-react';
 import nioraLogo from '@/assets/niora-logo.png';
 
-const Footer = () => {
+const Footer = forwardRef<HTMLElement>((_, ref) => {
   return (
-    <footer className="bg-secondary text-cream">
+    <footer ref={ref} className="bg-secondary text-cream">
       {/* Review Ticker */}
       <div className="border-b border-charcoal-light/30 py-4 overflow-hidden">
         <div className="review-ticker">
@@ -166,6 +167,8 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = 'Footer';
 
 export default Footer;
