@@ -259,12 +259,36 @@ const Booking = () => {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    // Build WhatsApp message with booking details
+    const bookingMessage = `*New Booking Request*
+
+*Customer Details:*
+• Name: ${formData.name}
+• Phone: ${formData.phone}
+${formData.email ? `• Email: ${formData.email}` : ''}
+
+*Appointment Details:*
+• Service: ${service?.name}
+• Duration: ${service?.duration}
+• Price: ${service?.price}
+• Date: ${selectedDate ? format(selectedDate, 'EEEE, MMMM d, yyyy') : ''}
+• Time: ${selectedTime}
+
+${formData.notes ? `*Special Notes:*\n${formData.notes}` : ''}
+
+Looking forward to your confirmation!`;
+
+    const whatsappUrl = `https://wa.me/917416683838?text=${encodeURIComponent(bookingMessage)}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
     setCurrentStep('confirmation');
     setIsSubmitting(false);
     toast({
-      title: "Booking Confirmed!",
-      description: "You will receive a confirmation call within 24 hours.",
+      title: "Booking Sent!",
+      description: "Your booking details have been sent via WhatsApp.",
     });
   };
 
