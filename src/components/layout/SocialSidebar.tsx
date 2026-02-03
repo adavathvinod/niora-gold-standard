@@ -1,9 +1,11 @@
+import { forwardRef } from 'react';
 import { Instagram, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const SocialSidebar = () => {
+const SocialSidebar = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 1, duration: 0.5 }}
@@ -36,6 +38,8 @@ const SocialSidebar = () => {
       </a>
     </motion.div>
   );
-};
+});
+
+SocialSidebar.displayName = 'SocialSidebar';
 
 export default SocialSidebar;
