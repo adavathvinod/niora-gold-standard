@@ -405,7 +405,7 @@ const Booking = () => {
                             {services.filter(s => s.category === category).map(svc => (
                               <button
                                 key={svc.id}
-                                onClick={() => setSelectedService(svc.id)}
+                                onClick={() => setSelectedService(selectedService === svc.id ? '' : svc.id)}
                                 className={cn(
                                   "w-full p-4 rounded-lg border-2 text-left transition-all duration-300 flex items-center justify-between",
                                   selectedService === svc.id
