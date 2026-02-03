@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SocialSidebar from '@/components/layout/SocialSidebar';
-import { X } from 'lucide-react';
+import { X, Play } from 'lucide-react';
 import gallery1 from '@/assets/gallery-1.jpg';
 import gallery2 from '@/assets/gallery-2.jpg';
 import gallery3 from '@/assets/gallery-3.jpg';
@@ -26,39 +26,49 @@ import salonInterior from '@/assets/salon-interior-1.png';
 import salonSkincare from '@/assets/salon-skincare.png';
 import salonSpa from '@/assets/salon-spa.png';
 
-const galleryImages = [
-  { src: gallery1, category: 'Hair Color', title: 'Balayage Transformation' },
-  { src: gallery7, category: 'Men\'s Styling', title: 'Textured Fade' },
-  { src: gallery8, category: 'Men\'s Styling', title: 'Classic Crop' },
-  { src: gallery9, category: 'Hair Color', title: 'Platinum Ombre' },
-  { src: gallery10, category: 'Hair Color', title: 'Natural Waves' },
-  { src: gallery11, category: 'Hair Color', title: 'Soft Layers' },
-  { src: gallery12, category: 'Bridal', title: 'Bridal Curls' },
-  { src: gallery13, category: 'Kids', title: 'Little Star' },
-  { src: gallery14, category: 'Kids', title: 'Pretty in Style' },
-  { src: gallery15, category: 'Hair Color', title: 'Copper Highlights' },
-  { src: gallery16, category: 'Hair Color', title: 'Salon Sisters' },
-  { src: gallery17, category: 'Hair Color', title: 'Bouncy Curls' },
-  { src: gallery2, category: 'Men\'s Styling', title: 'Modern Fade' },
-  { src: gallery3, category: 'Skin', title: 'Luxury Facial' },
-  { src: gallery4, category: 'Nails', title: 'Champagne Elegance' },
-  { src: gallery5, category: 'Bridal', title: 'Wedding Updo' },
-  { src: gallery6, category: 'Hair Color', title: 'Vivid Color Art' },
-  { src: bridalImage, category: 'Bridal', title: 'Classic Bridal Look' },
-  { src: salonInterior, category: 'Salon', title: 'Our Space' },
-  { src: salonSkincare, category: 'Salon', title: 'Skincare Bar' },
-  { src: salonSpa, category: 'Salon', title: 'Spa Suite' },
+type GalleryItem = {
+  src: string;
+  category: string;
+  title: string;
+  type: 'image' | 'video';
+};
+
+const galleryItems: GalleryItem[] = [
+  { src: '/videos/gallery-video-1.mp4', category: 'Styling', title: 'Hair Transformation', type: 'video' },
+  { src: '/videos/gallery-video-2.mp4', category: 'Styling', title: 'Blowout Style', type: 'video' },
+  { src: '/videos/gallery-video-3.mp4', category: 'Styling', title: 'Curling Session', type: 'video' },
+  { src: gallery1, category: 'Hair Color', title: 'Balayage Transformation', type: 'image' },
+  { src: gallery7, category: 'Men\'s Styling', title: 'Textured Fade', type: 'image' },
+  { src: gallery8, category: 'Men\'s Styling', title: 'Classic Crop', type: 'image' },
+  { src: gallery9, category: 'Hair Color', title: 'Platinum Ombre', type: 'image' },
+  { src: gallery10, category: 'Hair Color', title: 'Natural Waves', type: 'image' },
+  { src: gallery11, category: 'Hair Color', title: 'Soft Layers', type: 'image' },
+  { src: gallery12, category: 'Bridal', title: 'Bridal Curls', type: 'image' },
+  { src: gallery13, category: 'Kids', title: 'Little Star', type: 'image' },
+  { src: gallery14, category: 'Kids', title: 'Pretty in Style', type: 'image' },
+  { src: gallery15, category: 'Hair Color', title: 'Copper Highlights', type: 'image' },
+  { src: gallery16, category: 'Hair Color', title: 'Salon Sisters', type: 'image' },
+  { src: gallery17, category: 'Hair Color', title: 'Bouncy Curls', type: 'image' },
+  { src: gallery2, category: 'Men\'s Styling', title: 'Modern Fade', type: 'image' },
+  { src: gallery3, category: 'Skin', title: 'Luxury Facial', type: 'image' },
+  { src: gallery4, category: 'Nails', title: 'Champagne Elegance', type: 'image' },
+  { src: gallery5, category: 'Bridal', title: 'Wedding Updo', type: 'image' },
+  { src: gallery6, category: 'Hair Color', title: 'Vivid Color Art', type: 'image' },
+  { src: bridalImage, category: 'Bridal', title: 'Classic Bridal Look', type: 'image' },
+  { src: salonInterior, category: 'Salon', title: 'Our Space', type: 'image' },
+  { src: salonSkincare, category: 'Salon', title: 'Skincare Bar', type: 'image' },
+  { src: salonSpa, category: 'Salon', title: 'Spa Suite', type: 'image' },
 ];
 
-const categories = ['All', 'Hair Color', 'Men\'s Styling', 'Bridal', 'Kids', 'Skin', 'Nails', 'Salon'];
+const categories = ['All', 'Styling', 'Hair Color', 'Men\'s Styling', 'Bridal', 'Kids', 'Skin', 'Nails', 'Salon'];
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
+  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
 
-  const filteredImages = selectedCategory === 'All'
-    ? galleryImages
-    : galleryImages.filter(img => img.category === selectedCategory);
+  const filteredItems = selectedCategory === 'All'
+    ? galleryItems
+    : galleryItems.filter(item => item.category === selectedCategory);
 
   return (
     <div className="min-h-screen">
@@ -117,9 +127,9 @@ const Gallery = () => {
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               <AnimatePresence mode="popLayout">
-                {filteredImages.map((image, index) => (
+                {filteredItems.map((item, index) => (
                   <motion.div
-                    key={image.src}
+                    key={item.src}
                     layout
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -128,21 +138,43 @@ const Gallery = () => {
                     className={`gallery-item rounded-lg overflow-hidden cursor-pointer ${
                       index === 0 ? 'sm:col-span-2 sm:row-span-2' : ''
                     }`}
-                    onClick={() => setSelectedImage(image)}
+                    onClick={() => setSelectedItem(item)}
                   >
                     <div className={`${index === 0 ? 'aspect-square' : 'aspect-[4/5]'} relative group`}>
-                      <img
-                        src={image.src}
-                        alt={image.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
+                      {item.type === 'video' ? (
+                        <>
+                          <video
+                            src={item.src}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            muted
+                            loop
+                            playsInline
+                            onMouseEnter={(e) => e.currentTarget.play()}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.pause();
+                              e.currentTarget.currentTime = 0;
+                            }}
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div className="w-16 h-16 rounded-full bg-primary/80 flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300">
+                              <Play className="w-8 h-8 text-primary-foreground ml-1" />
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <img
+                          src={item.src}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="absolute bottom-0 left-0 right-0 p-6">
                           <p className="font-sans text-xs text-primary tracking-widest uppercase mb-1">
-                            {image.category}
+                            {item.category}
                           </p>
                           <h3 className="font-display text-xl text-cream">
-                            {image.title}
+                            {item.title}
                           </h3>
                         </div>
                       </div>
@@ -174,17 +206,17 @@ const Gallery = () => {
 
       {/* Lightbox */}
       <AnimatePresence>
-        {selectedImage && (
+        {selectedItem && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center bg-secondary/95 backdrop-blur-lg p-4"
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedItem(null)}
           >
             <button
               className="absolute top-6 right-6 p-2 text-cream hover:text-primary transition-colors"
-              onClick={() => setSelectedImage(null)}
+              onClick={() => setSelectedItem(null)}
               aria-label="Close"
             >
               <X className="w-8 h-8" />
@@ -196,17 +228,27 @@ const Gallery = () => {
               className="max-w-4xl max-h-[90vh]"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={selectedImage.src}
-                alt={selectedImage.title}
-                className="max-w-full max-h-[80vh] object-contain rounded-lg"
-              />
+              {selectedItem.type === 'video' ? (
+                <video
+                  src={selectedItem.src}
+                  className="max-w-full max-h-[80vh] object-contain rounded-lg"
+                  controls
+                  autoPlay
+                  loop
+                />
+              ) : (
+                <img
+                  src={selectedItem.src}
+                  alt={selectedItem.title}
+                  className="max-w-full max-h-[80vh] object-contain rounded-lg"
+                />
+              )}
               <div className="mt-4 text-center">
                 <p className="font-sans text-xs text-primary tracking-widest uppercase mb-1">
-                  {selectedImage.category}
+                  {selectedItem.category}
                 </p>
                 <h3 className="font-display text-2xl text-cream">
-                  {selectedImage.title}
+                  {selectedItem.title}
                 </h3>
               </div>
             </motion.div>
