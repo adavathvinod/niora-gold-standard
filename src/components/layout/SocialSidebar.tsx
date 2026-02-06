@@ -28,7 +28,7 @@ const SocialSidebar = forwardRef<HTMLDivElement>((_, ref) => {
         <Phone className="w-5 h-5" />
       </a>
       <a
-        href="https://maps.google.com/?q=Arunodaya+Nagar"
+        href="https://maps.app.goo.gl/4aN4FLrsEdRkH1MdA"
         target="_blank"
         rel="noopener noreferrer"
         className="social-icon"
