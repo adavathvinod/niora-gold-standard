@@ -47,7 +47,9 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
             <h4 className="font-display text-xl mb-6 text-primary">Navigate</h4>
             <ul className="space-y-3">
             {[
+               { href: '/', label: 'Home' },
                 { href: '/services', label: 'The Atelier' },
+                { href: '/makeup-photography', label: 'Photography & Makeup' },
                 { href: '/gallery', label: 'Lookbook' },
                 { href: '/vip', label: 'Private Suite' },
                 { href: '/booking', label: 'Book Now' },
