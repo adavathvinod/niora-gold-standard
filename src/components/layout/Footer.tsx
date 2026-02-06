@@ -138,7 +138,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                 <Phone className="w-5 h-5" />
               </a>
               <a
-                href="https://maps.google.com"
+                href="https://share.google/8rVbPUUMhWG08eGUc"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-icon"
