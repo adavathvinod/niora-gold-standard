@@ -155,7 +155,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-charcoal-light/30 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-sans text-xs text-cream/50 tracking-wide">
-            © 2024 Niora Hair and Beauty. All rights reserved.
+            © 2026 Niora Hair and Beauty. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 text-primary">
