@@ -398,16 +398,16 @@ Looking forward to your confirmation!`;
         )}
 
         {/* Booking Content */}
-        <section className="py-16 marble-texture min-h-[60vh]">
+        <section className="py-16 marble-texture min-h-[60vh] overflow-hidden">
           <div className="max-w-5xl mx-auto px-6 lg:px-12">
             <AnimatePresence mode="wait">
               {/* Step 1: Service Selection */}
               {currentStep === 'service' && (
                 <motion.div
                   key="service"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
                 >
                   <h2 className="font-display text-3xl mb-8 text-center">
@@ -463,9 +463,9 @@ Looking forward to your confirmation!`;
               {currentStep === 'datetime' && (
                 <motion.div
                   key="datetime"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
                 >
                   <h2 className="font-display text-3xl mb-8 text-center">
@@ -528,9 +528,9 @@ Looking forward to your confirmation!`;
               {currentStep === 'details' && (
                 <motion.div
                   key="details"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
                 >
                   <h2 className="font-display text-3xl mb-8 text-center">
